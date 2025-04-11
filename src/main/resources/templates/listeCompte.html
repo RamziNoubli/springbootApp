@@ -2,28 +2,54 @@
 <html xmlns="http://www.thymeleaf.org">
 <head>
 	<title>ListeCompte</title>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" 
-	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" th:href="@{/css/HeaderStyles.css}">
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+
+
 
 </head>
 <body>
-	<br>
-	<table class="table table-bordered">
-		<thead>
-			<th>ID</th>
-			<th>TITULAIRE</th>
-			<th>SOLDE</th>
-		</thead>
-		<tbody>
-			<tr th:each="c:${comptes}">	
-				<td th:text="${c.id}"></td>
-				<td th:text="${c.titulaire}"></td>
-				<td th:text="${c.solde}"></td>	
-				<td><a class="btn btn-danger" th:href="@{/details/{id}(id=${c.id})}">Detail</a></td>
-			</tr>
-		</tbody>
-	</table>
+	<div class="header-nightsky" style="background: transparent;">
+	        <nav class="navbar navbar-default">
+	            <div class="container">
+	                <div class="navbar-header">
+	                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+	                        <span class="icon-bar"></span>
+	                        <span class="icon-bar"></span>
+	                        <span class="icon-bar"></span>
+	                    </button>
+	                </div>
+	                <div class="collapse navbar-collapse" id="myNavbar">
+	                    <ul class="nav navbar-nav navbar-right">
+	                        <li><a th:href="@{/accueil}" style="color: black;">HOME</a></li>
+	                        
+	                        <li class="dropdown">
+	                            <a class="dropdown-toggle" th:href="@{ajouter}" style="color:black;">AjouterCompte</a>
+	                        </li>
+	                    </ul>
+	                </div>
+	            </div>
+	        </nav> 
+	  
+			<br>
+		<table class="table table-bordered">
+			<thead>
+				<th>ID</th>
+				<th>TITULAIRE</th>
+				<th>SOLDE</th>
+			</thead>
+			<tbody>
+				<tr th:each="c:${comptes}">	
+					<td th:text="${c.id}"></td>
+					<td th:text="${c.titulaire}"></td>
+					<td th:text="${c.solde}"></td>	
+					<td><a class="btn btn-danger" th:href="@{/details/{id}(id=${c.id})}">Detail</a></td>
+				</tr>
+			</tbody>
+		</table>
+	 </div>
 </body>
 </html>
 
