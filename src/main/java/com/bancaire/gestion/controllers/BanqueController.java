@@ -13,6 +13,7 @@ import static com.bancaire.gestion.MainApplication.comptes;
 @Controller
 public class BanqueController {
 	
+	
 	@GetMapping("accueil")
     public String afficherAccueil() {
         return "accueil";
